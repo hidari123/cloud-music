@@ -1014,7 +1014,7 @@ ol {
     right: 0;
 }
 
-.logo, .m-nav .cor, .m-nav .hot, .m-srch .srchbg, .m-mail, .m-tophead, .m-topvd {
+.logo, .cor, .hot,.srchbg, .m-mail, .m-tophead, .m-topvd {
     background: url(../img/topbar.png) no-repeat 0 9999px;
 }
 
@@ -1074,4 +1074,7 @@ em, i {
 body, html, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, header, menu, section, p, input, td, th, ins {
     padding: 0;
     margin: 0;
+}
+img, .txt {
+    border: 0;
 }

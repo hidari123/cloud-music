@@ -32,15 +32,24 @@
 </template>
 
 <script>
+import { countries } from '@/api/'
 export default {
   data () {
     return {
       activeIndex: '/findMusic'
     }
   },
+  created () {
+    this.getcountries()
+  },
   methods: {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
+    },
+    getcountries () {
+      countries().then(res => {
+        console.log(res)
+      })
     }
   }
 }

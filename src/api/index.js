@@ -10,3 +10,23 @@ export const countries = () =>
     url: '/countries/code/list',
     method: 'get'
   })
+
+// 手机号登录
+export const loginPhone = (phone, password) => {
+  return instance({
+    url: '/login/cellphone',
+    method: 'post',
+    params: {
+      phone,
+      password
+    }
+  })
+}
+
+// 账号信息获取 需要 token
+export const account = () => {
+  return instance({
+    url: '/user/account',
+    method: 'get'
+  })
+}

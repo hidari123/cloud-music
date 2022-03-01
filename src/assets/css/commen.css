@@ -1078,3 +1078,9 @@ body, html, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, header, menu, sectio
 img, .txt {
     border: 0;
 }
+
+/* 关闭 dialog 防抖 */
+body {
+    overflow: hidden;
+    padding-right: 0 !important;
+}

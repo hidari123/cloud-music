@@ -33,22 +33,6 @@
 
   <!-- Form -->
   <login-dialog :show.sync="show" :from="from"/>
-  <!-- <div class="my-login-dialog">
-    <el-dialog title="登录" :visible.sync="dialogFormVisible">
-    <el-form :model="ruleForm">
-        <el-form-item label="手机号" :label-width="formLabelWidth">
-        <el-input v-model="ruleForm.phone" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" :label-width="formLabelWidth">
-            <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
-        </el-form-item>
-    </el-form>
-    <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false" size="middle">取 消</el-button>
-        <el-button type="primary" @click="getLoginPhone()" size="middle">确 定</el-button>
-    </div>
-    </el-dialog>
-  </div> -->
 </div>
 </template>
 
@@ -146,5 +130,10 @@ export default {
         color: #787878;
         cursor: pointer;
     }
+}
+</style>
+<style>
+.el-header {
+    padding: 0 !important;
 }
 </style>

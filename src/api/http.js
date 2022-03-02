@@ -14,7 +14,7 @@ var instance = axios.create({
   // 请求超时的时间
   timeout: 5000,
   // 基础路径 发请求的时候 路径中会出现 api
-  baseURL: 'http://localhost:3000'
+  baseURL: '/api'
 })
 
 // 请求拦截器

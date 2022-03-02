@@ -20,7 +20,14 @@ var instance = axios.create({
 // 请求拦截器
 instance.interceptors.request.use((config) => {
   // config 配置对象 对象里面有一个属性 headers请求头
+  if (localStorage.getItem('Authorization')) {
+    // 如果读取到 token 添加到请求头中
+    config.headers.Authorization = localStorage.getItem('Authorization')
+  }
   return config
+},
+error => {
+  return Promise.reject(error)
 })
 
 // 相应拦截器

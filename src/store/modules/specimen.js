@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-export const specimen = new Vuex.Store({
+const specimen = new Vuex.Store({
   namespaced: true,
   state: {
     // 存储token
@@ -17,3 +17,5 @@ export const specimen = new Vuex.Store({
     }
   }
 })
+
+export default specimen

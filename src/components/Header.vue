@@ -4,18 +4,20 @@
     <h1 class="logo">
       <!-- <a href="/#" hidefocus='true'>网易云音乐</a> -->
     </h1>
+    <!-- :router='true' 根据 index 跳转 -->
     <el-menu
       :default-active="activeIndex"
+      :router="true"
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
       background-color="#242424"
       text-color="#787878"
       active-text-color="#ffd04b">
-        <el-menu-item index="/findMusic">发现音乐</el-menu-item>
-        <el-menu-item index="/myMusic">我的音乐</el-menu-item>
+        <el-menu-item index="/findmusic">发现音乐</el-menu-item>
+        <el-menu-item index="/mymusic">我的音乐</el-menu-item>
         <el-menu-item index="/focus">关注</el-menu-item>
-        <el-menu-item index="/musicMan">音乐人</el-menu-item>
+        <el-menu-item index="/musicman">音乐人</el-menu-item>
     </el-menu>
     <div class="search">
       <div class="srchbg">
@@ -56,7 +58,7 @@ export default {
   data () {
     return {
       dialogFormVisible: false,
-      activeIndex: '/findMusic',
+      activeIndex: '/findmusic',
       ruleForm: {
         phone: '15868831043',
         pass: '@hidari123'
@@ -70,16 +72,18 @@ export default {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
     },
-    ...mapMutations(['changeLogin']),
+    ...mapMutations({ changeLogin: 'changeLogin' }),
     getLoginPhone () {
+      const _this = this
       this.dialogFormVisible = false
       loginPhone(this.ruleForm.phone, this.ruleForm.pass).then(res => {
-        this.userToken = res.token
-
+        _this.userToken = 'Bearer' + res.token
+        console.log(_this.userToken)
         // 将用户token保存到vuex中
-        this.changeLogin({ Authorization: this.userToken })
+        _this.changeLogin({ Authorization: _this.userToken })
       }).catch(error => {
         console.log(error)
+        // _this.$router.push({ name: 'Tourist' })
       })
     }
   }

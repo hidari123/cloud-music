@@ -3,7 +3,10 @@
     <el-header>
       <Header />
     </el-header>
-  <el-main>Main</el-main>
+  <el-main>
+      <!-- 路由出口 -->
+      <router-view></router-view>
+  </el-main>
 </el-container>
 </template>
 

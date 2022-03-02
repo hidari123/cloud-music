@@ -27,12 +27,13 @@
       </div>
     </div>
     <div class="login">
-      <span class="user" @click="dialogFormVisible = true">登录</span>
+      <span class="user" @click="show = true">登录</span>
     </div>
   </div>
 
   <!-- Form -->
-  <div class="my-login-dialog">
+  <login-dialog :show.sync="show" :from="from"/>
+  <!-- <div class="my-login-dialog">
     <el-dialog title="登录" :visible.sync="dialogFormVisible">
     <el-form :model="ruleForm">
         <el-form-item label="手机号" :label-width="formLabelWidth">
@@ -47,44 +48,31 @@
         <el-button type="primary" @click="getLoginPhone()" size="middle">确 定</el-button>
     </div>
     </el-dialog>
-  </div>
+  </div> -->
 </div>
 </template>
 
 <script>
-import { loginPhone } from '@/api/'
-import { mapMutations } from 'vuex'
+import LoginDialog from './LoginDialog.vue'
 export default {
   data () {
     return {
-      dialogFormVisible: false,
-      activeIndex: '/findmusic',
-      ruleForm: {
-        phone: '15868831043',
-        pass: '@hidari123'
-      },
-      formLabelWidth: '60px'
+      show: false,
+      from: this.$route.path,
+      activeIndex: this.$route.path
     }
   },
-  created () {
+  components: {
+    LoginDialog
+  },
+  updated () {
+    this.activeIndex = this.$route.path
+    console.log(this.activeIndex)
+    // console.log(this.$route.path)
   },
   methods: {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
-    },
-    ...mapMutations({ changeLogin: 'changeLogin' }),
-    getLoginPhone () {
-      const _this = this
-      this.dialogFormVisible = false
-      loginPhone(this.ruleForm.phone, this.ruleForm.pass).then(res => {
-        _this.userToken = 'Bearer' + res.token
-        console.log(_this.userToken)
-        // 将用户token保存到vuex中
-        _this.changeLogin({ Authorization: _this.userToken })
-      }).catch(error => {
-        console.log(error)
-        // _this.$router.push({ name: 'Tourist' })
-      })
     }
   }
 }
@@ -158,44 +146,5 @@ export default {
         color: #787878;
         cursor: pointer;
     }
-}
-</style>
-<style>
-.my-login-dialog .el-dialog {
-  border-radius: 15px;
-}
-.my-login-dialog .el-dialog__wrapper{
-    width: 800px;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 !important;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: calc(100% - 30px);
-    max-width: calc(100% - 30px);
-}
-.my-login-dialog .el-dialog__header {
-    /* height: 40px;
-    font-size: 20px; */
-    line-height: 40px;
-    background-color: #000;
-    border-radius: 15px 15px 0 0;
-}
-.my-login-dialog .el-dialog__title {
-    color: #fff;
-}
-.my-login-dialog .el-dialog__body {
-    padding: 30px 60px;
-}
-.my-login-dialog .el-dialog__footer {
-    padding: 0px 60px 30px;
-}
-.my-login-dialog .el-button--primary {
-    background-color: #000;
-    border-color: #000;
-    padding: 10px 12px;
 }
 </style>

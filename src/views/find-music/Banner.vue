@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="banner">
       <el-carousel :interval="4000" type="card">
         <el-carousel-item v-for="(item, index) in bannerList" :key="index">
             <img class="imgSize" :src="item.imageUrl" alt="">
@@ -38,5 +38,11 @@ export default {
 <style scoped>
 .imgSize {
     width: 100%;
+}
+</style>
+<style>
+.el-tabs__content {
+    width: 80% !important;
+    margin: 0 auto !important;
 }
 </style>

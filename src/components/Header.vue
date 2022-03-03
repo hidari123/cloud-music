@@ -1,11 +1,46 @@
 <template>
 <div>
-  <div class="header">
+    <el-row type="flex" class="row-bg header" justify="center">
+        <el-col :span="5">
+            <h1 class="logo">
+            </h1>
+        </el-col>
+        <el-col :span="7">
+            <el-menu
+            :default-active="activeIndex"
+            :router="true"
+            class="el-menu-demo"
+            mode="horizontal"
+            @select="handleSelect"
+            background-color="#242424"
+            text-color="#787878"
+            active-text-color="#ffd04b">
+                <el-menu-item index="/findmusic">发现音乐</el-menu-item>
+                <el-menu-item index="/mymusic">我的音乐</el-menu-item>
+                <el-menu-item index="/focus">关注</el-menu-item>
+                <el-menu-item index="/musicman">音乐人</el-menu-item>
+            </el-menu>
+        </el-col>
+        <el-col :span="3">
+            <div class="search">
+            <div class="srchbg">
+                <span class="parent">
+                <input type="text" name="srch" id="srch" class="txt j-flag">
+                </span>
+            </div>
+            </div>
+        </el-col>
+        <el-col :span="5">
+            <div class="login">
+            <span class="user" @click="show = true">登录</span>
+            </div>
+        </el-col>
+    </el-row>
+  <!-- <div class="header">
     <h1 class="logo">
-      <!-- <a href="/#" hidefocus='true'>网易云音乐</a> -->
-    </h1>
+    </h1> -->
     <!-- :router='true' 根据 index 跳转 -->
-    <el-menu
+    <!-- <el-menu
       :default-active="activeIndex"
       :router="true"
       class="el-menu-demo"
@@ -29,7 +64,7 @@
     <div class="login">
       <span class="user" @click="show = true">登录</span>
     </div>
-  </div>
+  </div> -->
 
   <!-- Form -->
   <login-dialog :show.sync="show" :from="from"/>
@@ -89,7 +124,7 @@ export default {
   }
 }
 .header .search {
-    width: 158px;
+    width: 258px;
     height: 32px;
     .srchbg {
         margin-top: 19px;

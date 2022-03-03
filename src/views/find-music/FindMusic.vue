@@ -3,6 +3,7 @@
     <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="推荐" name="recommend">
             <banner />
+            <hot />
         </el-tab-pane>
         <el-tab-pane label="排行榜" name="topic">排行榜</el-tab-pane>
         <el-tab-pane label="歌单" name="songSheet">歌单</el-tab-pane>
@@ -15,8 +16,12 @@
 
 <script>
 import Banner from './Banner.vue'
+import Hot from './hot.vue'
 export default {
-  components: { Banner },
+  components: {
+    Banner,
+    Hot
+  },
   name: 'findMusic',
   data () {
     return {
@@ -36,10 +41,10 @@ export default {
     padding: 0 !important;
 }
 .el-tabs__active-bar{
-    margin: 0 0 0 540px !important;
+    margin: 0 0 0 47% !important;
 }
 .el-tabs__nav{
-    padding: 0 0 0 540px !important;
+    padding: 0 0 0 30% !important;
 }
 .el-tabs__nav-scroll {
     background-color: #ffd04b !important;

@@ -22,4 +22,6 @@
     git push：将当前分支推送到origin仓库的对应分支。 如果当前分支只有一个追踪分支，那么origin仓库名都可以省略
 
     -u：如果当前分支与origin仓库的多个分支存在追踪关系，那么这个时候-u选项会指定一个默认的origin仓库分支，这样后面就可以不加任何参数直接使用 git push 上传
+3. git push -f origin master
+    强制更新
 ```

@@ -1099,3 +1099,6 @@ body, textarea, select, input, button {
     font-family: Arial, Helvetica, sans-serif;
     -webkit-text-size-adjust: none;
 }
+body {
+    min-width: 1200px;
+}

@@ -67,7 +67,6 @@ export default {
     getTop () {
       top({ limit: 8 }).then(res => {
         this.topMusicLists = res.playlists
-        console.log(this.topMusicLists)
       })
     }
   }

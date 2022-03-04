@@ -46,3 +46,20 @@ export const top = (pramas) => {
     pramas
   })
 }
+
+export const getTopList = (params) => {
+  return instance({
+    url: '/top/list',
+    method: 'GET',
+    params
+  })
+}
+
+// 新碟上架
+export const album = (params) => {
+  return instance({
+    url: '/top/album',
+    method: 'GET',
+    params
+  })
+}

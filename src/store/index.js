@@ -32,7 +32,8 @@ const store = new Vuex.Store({
   state: {
     // 存储token
     Authorization: localStorage.getItem('Authorization') ? localStorage.getItem('Authorization') : '',
-    currentId: null
+    currentId: null,
+    currentName: null
   },
 
   mutations: {

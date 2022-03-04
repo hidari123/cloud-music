@@ -38,7 +38,7 @@ export default {
   created () {
   },
   computed: {
-    ...mapState(['currentId'])
+    ...mapState(['currentId', 'currentName'])
   },
   watch: {
     currentId () {
@@ -46,6 +46,12 @@ export default {
         this.activeName = 'songsheet'
         this.$router.push('/findmusic/songsheet')
         console.log(this.currentId)
+      }
+    },
+    currentName () {
+      if (this.currentName) {
+        this.activeName = 'newdisc'
+        this.$router.push('/findmusic/newdisc')
       }
     }
   },

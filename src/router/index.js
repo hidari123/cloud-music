@@ -20,7 +20,39 @@ const routes = [
       {
         path: '/findmusic',
         name: 'FindMusic',
-        component: FindMusic
+        component: FindMusic,
+        children: [
+          {
+            path: '/findmusic/recommend',
+            name: 'Recommand',
+            component: () => import('@/views/find-music/Recommend.vue')
+          },
+          {
+            path: '/findmusic/topic',
+            name: 'Topic',
+            component: () => import('@/views/find-music/Topic.vue')
+          },
+          {
+            path: '/findmusic/songsheet',
+            name: 'Songsheet',
+            component: () => import('@/views/find-music/Songsheet.vue')
+          },
+          {
+            path: '/findmusic/radio',
+            name: 'Radio',
+            component: () => import('@/views/find-music/Radio.vue')
+          },
+          {
+            path: '/findmusic/singer',
+            name: 'Singer',
+            component: () => import('@/views/find-music/Singer.vue')
+          },
+          {
+            path: '/findmusic/newdisc',
+            name: 'Newdisc',
+            component: () => import('@/views/find-music/Newdisc.vue')
+          }
+        ]
       },
       {
         path: '/musicman',

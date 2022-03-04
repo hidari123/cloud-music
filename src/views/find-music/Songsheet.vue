@@ -1,5 +1,5 @@
 <template>
-  <div>排行榜</div>
+  <div>歌单</div>
 </template>
 
 <script>

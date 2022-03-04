@@ -2,31 +2,32 @@
   <div>
     <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="推荐" name="recommend">
-            <banner />
-            <hot />
+            <recommend />
         </el-tab-pane>
-        <el-tab-pane label="排行榜" name="topic">排行榜</el-tab-pane>
-        <el-tab-pane label="歌单" name="songSheet">
+        <el-tab-pane label="排行榜" name="topic">
+            <topic />
+        </el-tab-pane>
+        <el-tab-pane label="歌单" name="songsheet">
             <music-list />
         </el-tab-pane>
         <el-tab-pane label="主播电台" name="radio">主播电台</el-tab-pane>
         <el-tab-pane label="歌手" name="singer">歌手</el-tab-pane>
-        <el-tab-pane label="新碟上架" name="newDisc">新碟上架</el-tab-pane>
+        <el-tab-pane label="新碟上架" name="newdisc">新碟上架</el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import Banner from './Banner.vue'
-import Hot from './Hot.vue'
 import MusicList from './MusicList.vue'
 import { highquality } from '@/api/findMusic'
+import Topic from './Topic.vue'
+import Recommend from './Recommend.vue'
 export default {
   components: {
-    Banner,
     MusicList,
-    Hot
+    Topic,
+    Recommend
   },
   name: 'findMusic',
   data () {
@@ -42,7 +43,8 @@ export default {
   watch: {
     currentId () {
       if (this.currentId) {
-        this.activeName = 'songSheet'
+        this.activeName = 'songsheet'
+        this.$router.push('/findmusic/songsheet')
         console.log(this.currentId)
       }
     }
@@ -51,6 +53,7 @@ export default {
     handleClick (tab, event) {
       console.log(tab)
       console.log(event)
+      this.$router.push(`/findmusic/${tab.name}`)
       if (tab._uid === 41) {
         this.getMusicList()
       }

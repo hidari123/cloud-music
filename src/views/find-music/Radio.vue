@@ -1,5 +1,5 @@
 <template>
-  <div>排行榜</div>
+  <div>主播电台</div>
 </template>
 
 <script>

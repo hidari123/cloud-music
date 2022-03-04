@@ -1,5 +1,5 @@
 <template>
-  <div>排行榜</div>
+  <div>新碟上架</div>
 </template>
 
 <script>
